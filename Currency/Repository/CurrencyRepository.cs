@@ -51,7 +51,7 @@ namespace CurrencyAPI.Repository
 
         public DayModel GetCurrencies(DateTime time)
         {
-            var result = DayContext.Days.Include(x => x.Currencies).First(x => x.Date.Day == time.Day);
+            var result = DayContext.Days.Include(x => x.Currencies).FirstOrDefault(x => x.Date.Day == time.Day);
 
             if (result == null)
             {
@@ -70,7 +70,7 @@ namespace CurrencyAPI.Repository
 
         public PagedList<DayModel> GetCurrencies(DateTime time, int pageID, int elementsOnPage)
         {
-            var result = DayContext.Days.Include(x => x.Currencies).First(x => x.Date.Day == time.Day);
+            var result = DayContext.Days.Include(x => x.Currencies).FirstOrDefault(x => x.Date.Day == time.Day);
 
             if (result == null)
             {
